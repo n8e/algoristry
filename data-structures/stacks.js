@@ -20,7 +20,7 @@ class Stack {
   }
 
   unstack() {
-    this.data.pop();
+    this.data.shift();
   }
 }
 
