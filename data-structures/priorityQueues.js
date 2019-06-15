@@ -15,20 +15,16 @@ class PriorityQueue {
   }
 
   front() {
-    if (this.isEmpty()) return 'No elements in Queue';
-
-    return this.items[0];
+    return this.isEmpty() ? 'No elements in Queue' : this.items[0];
   }
 
   rear() {
-    if (this.isEmpty()) return 'No elements in Queue';
-
-    return this.items[this.items.length - 1];
+    return this.isEmpty() ? 'No elements in Queue': this.items[this.items.length - 1];
   }
 
   printPQueue() {
     var str = '';
-    for (var i = 0; i < this.items.length; i++) {
+    for (var i = 0, n = this.items.length; i < n; i++) {
       str += this.items[i].element + ' ';
     }
     return str;
@@ -36,25 +32,23 @@ class PriorityQueue {
 
   enqueue(element, priority) {
     let queueElement = new QueueElement(element, priority);
-    let containsPriorityGreaterThanNewElement = false;
+    let hasLesserPriority = true;
 
     for (var i = 0; i < this.items.length; i++) {
-      if (this.items[i].priority > queueElement.priority) {
+      if (this.items[i].priority < queueElement.priority) {
         this.items.splice(i, 0, queueElement);
-        containsPriorityGreaterThanNewElement = true;
+        hasLesserPriority = false;
         break;
       }
     }
 
-    if (!containsPriorityGreaterThanNewElement) {
+    if (hasLesserPriority) {
       this.items.push(queueElement);
     }
   }
 
   dequeue() {
-    if (this.isEmpty()) return 'Underflow';
-
-    return this.items.shift();
+    return this.isEmpty() ? 'Underflow' : this.items.shift();
   }
 }
 
