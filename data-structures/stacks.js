@@ -24,14 +24,10 @@ class Stack {
   }
 }
 
-let myStack = new Stack();
+const myStack = new Stack();
 
-myStack.stack(21);
-myStack.stack(32);
-myStack.stack(43);
-myStack.stack(54);
-myStack.stack(65);
-myStack.stack(76);
+[21, 32, 43, 54, 65, 76].forEach(value => myStack.stack(value));
+
 myStack.unstack();
 
 console.log('Size:', myStack.size());
