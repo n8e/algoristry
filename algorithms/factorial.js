@@ -4,14 +4,7 @@
   Should print: Value: 5, Factorial = 120
 */
 
-const factorial = (n) => {
-    let result = 1;
-    for(var i = n; i > 0; i -= 1) {
-        result *= i;
-    }
-    return result;
-};
-
+const factorial = (n) => n <= 1 ? 1 : n * factorial(n - 1);
 
 // print process.argv
 process.argv.forEach((val, index, array) => {
