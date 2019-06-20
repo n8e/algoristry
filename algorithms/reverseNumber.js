@@ -8,9 +8,13 @@ function recurse(num, str) {
 }
 
 function reverse(x) {
-  var reverseString = recurse(x, '');
+  if (x === 0) return 0;
 
-  return parseInt(reverseString);
+  var reverseString = recurse(Math.abs(x), ''), sign = Math.sign(x);
+
+  return sign * parseInt(reverseString);
 }
 
 console.log(reverse(958));
+console.log(reverse(-395));
+console.log(reverse(0));
