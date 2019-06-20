@@ -24,14 +24,10 @@ class Queue{
   }
 }
 
-let myQ = new Queue();
+const myQ = new Queue();
 
-myQ.enqueue(21);
-myQ.enqueue(32);
-myQ.enqueue(43);
-myQ.enqueue(54);
-myQ.enqueue(65);
-myQ.enqueue(76);
+[21, 32, 43, 54, 65, 76].forEach(value => myQ.enqueue(value));
+
 myQ.dequeue();
 
 console.log('Size:', myQ.size());
